@@ -14,43 +14,54 @@ const imagesDistDir = path.join(distDir, 'images/')
 const webSrcDir = '/images/'
 
 module.exports = async ({ srcFile, widths, ...attributes }) => {
-  if(!attributes) {
+  if (!attributes) {
     attributes = {}
   }
 
-  if(srcFile) {
-    if(!srcFile.includes(imagesSrcDir)) {
+  if (srcFile) {
+    if (!srcFile.includes(imagesSrcDir)) {
       srcFile = path.join(imagesSrcDir, srcFile)
     }
 
-    if(!widths) {
+    if (!widths) {
       widths = breakpoints
-        .filter(breakpoint => breakpoint.max)
+        .filter((breakpoint) => breakpoint.max)
         .map((breakpoint) => breakpoint.max + 'w')
     }
   }
 
-  const src = srcFile ? srcFile.replace(imagesSrcDir, webSrcDir) : attributes['src']
+  const src = srcFile
+    ? srcFile.replace(imagesSrcDir, webSrcDir)
+    : attributes['src']
 
   attributes['src'] = src
 
-  if(widths) {
+  if (widths) {
     const sources = [src]
     const srcDirname = path.dirname(srcFile)
     const srcExtname = path.extname(srcFile)
     const srcBasename = path.basename(srcFile, srcExtname)
     let sourceImage
 
-    fs.copyFile(srcFile, srcFile.replace(imagesSrcDir, imagesDistDir), (error) => {
-      if(error) {
-        console.error(error)
-      } else {
-        console.log('copied image:', srcFile, ' => ', srcFile.replace(imagesSrcDir, imagesDistDir))
+    fs.copyFile(
+      srcFile,
+      srcFile.replace(imagesSrcDir, imagesDistDir),
+      (error) => {
+        if (error) {
+          console.error(error)
+        } else {
+          console.log(
+            'copied image:',
+            srcFile,
+            ' => ',
+            srcFile.replace(imagesSrcDir, imagesDistDir)
+          )
+        }
       }
-    })
-    
+    )
+
     const getSourceImage = async function() {
-      if(!sourceImage) {
+      if (!sourceImage) {
         await jimp.read(srcFile).then((image) => {
           sourceImage = image
         })
@@ -60,52 +71,65 @@ module.exports = async ({ srcFile, widths, ...attributes }) => {
     }
 
     widths.forEach((width) => {
-      const widthSrcFile = path.join(srcDirname, '/' + srcBasename + '@' + width + srcExtname)
+      const widthSrcFile = path.join(
+        srcDirname,
+        '/' + srcBasename + '@' + width + srcExtname
+      )
       const widthSrc = widthSrcFile.replace(imagesSrcDir, webSrcDir)
       const widthDistFile = widthSrcFile.replace(imagesSrcDir, imagesDistDir)
       const widthDistDir = path.dirname(widthDistFile)
       console.log('checking for image:', widthSrcFile)
-      
-      if(fs.existsSync(widthSrcFile)) {
+
+      if (fs.existsSync(widthSrcFile)) {
         console.log('copying image:', widthSrcFile, ' => ', widthDistFile)
         sources.push(widthSrc + ' ' + width)
 
         copy(widthSrcFile, widthDistFile, (error) => {
-          if(error) {
+          if (error) {
             console.error('Could not copy image:', error)
           } else {
             'copied image:', widthSrcFile
           }
         })
       } else {
-        if(width.includes('w')) {
+        if (width.includes('w')) {
           console.log('ensuring existence of directory:', widthDistDir)
 
           mkdir(widthDistDir, (mkdirError) => {
             if (mkdirError && mkdirError.code !== 'EEXIST') {
-              console.error('could not create directory:', widthDistDir, mkdirError)
+              console.error(
+                'could not create directory:',
+                widthDistDir,
+                mkdirError
+              )
             } else {
               console.log('Generating resized image:', widthDistFile)
 
               const size = parseInt(width.match(/\d+/))
 
-              getSourceImage().then(image => {
-                if(image.bitmap.width > size) {
-                  sources.push(widthSrc + ' ' + width)
-                  
-                  return image
-                    .clone()
-                    .resize(size, jimp.AUTO)
-                    .write(widthDistFile)
-                    .then(() => {
-                      console.log('resized image:', widthDistFile)
-                    })
-                } else {
-                  console.log('Skipping resize for:', widthDistFile)
-                }
-              }).catch(error => {
-                console.error('Could not generate image:', widthDistFile, error)
-              })
+              getSourceImage()
+                .then((image) => {
+                  if (image.bitmap.width > size) {
+                    sources.push(widthSrc + ' ' + width)
+
+                    return image
+                      .clone()
+                      .resize(size, jimp.AUTO)
+                      .write(widthDistFile)
+                      .then(() => {
+                        console.log('resized image:', widthDistFile)
+                      })
+                  } else {
+                    console.log('Skipping resize for:', widthDistFile)
+                  }
+                })
+                .catch((error) => {
+                  console.error(
+                    'Could not generate image:',
+                    widthDistFile,
+                    error
+                  )
+                })
             }
           })
         }
@@ -117,10 +141,10 @@ module.exports = async ({ srcFile, widths, ...attributes }) => {
 
   const attributeAssignments = []
 
-  for(let name in attributes) {
+  for (let name in attributes) {
     const value = attributes[name]
 
-    if(value) {
+    if (value) {
       attributeAssignments.push(name + '="' + value + '"')
     }
   }
