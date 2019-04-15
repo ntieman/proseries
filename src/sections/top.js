@@ -7,8 +7,7 @@ module.exports = async () => {
         <a href="/">
           ${await image({
             alt: 'Pro Series',
-            srcFile: 'pro-series.png',
-            widths: ['2x']
+            srcFile: 'pro-series.png'
           })}
         </a>
       </h1>
