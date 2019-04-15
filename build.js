@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const glob = require('glob')
+const html = require('html')
 const rimraf = require('rimraf')
 
 const srcDir = path.join(__dirname, 'src/')
@@ -32,6 +33,13 @@ glob(pagesSrcGlob, (error, pages) => {
 
       const generator = require(srcFile)
       const text = await generator()
+
+      const formattedText = html.prettyPrint(text, {
+        indent_size: 2,
+        indent_char: ' ',
+        max_char: 80
+      })
+
       const distFile = srcFile.replace(pagesSrcDir, pagesDistDir).replace(/\.js$/, '.html')
       const distFileDir = path.dirname(distFile)
 
@@ -41,7 +49,7 @@ glob(pagesSrcGlob, (error, pages) => {
         if(mkdirError && mkdirError.code !== 'EEXIST') {
           console.error('could not create directory:', distFileDir, mkdirError)
         } else {
-          fs.writeFile(distFile, text, (fileError) => {
+          fs.writeFile(distFile, formattedText, (fileError) => {
             if(fileError) {
               console.error('could not save page:', distFileDir, fileError)
             } else {
