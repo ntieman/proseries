@@ -25,7 +25,7 @@ console.log('destination directory:', pagesDistDir)
 glob(pagesSrcGlob, (error, pages) => {
   console.log(pages.length + ' page(s) read')
 
-  if(error) {
+  if (error) {
     console.error('could not read pages', error)
   } else {
     pages.forEach(async (srcFile) => {
@@ -40,17 +40,19 @@ glob(pagesSrcGlob, (error, pages) => {
         max_char: 80
       })
 
-      const distFile = srcFile.replace(pagesSrcDir, pagesDistDir).replace(/\.js$/, '.html')
+      const distFile = srcFile
+        .replace(pagesSrcDir, pagesDistDir)
+        .replace(/\.js$/, '.html')
       const distFileDir = path.dirname(distFile)
 
       console.log('ensuring existence of directory:', distFileDir)
 
       fs.mkdir(distFileDir, { recursive: true }, (mkdirError) => {
-        if(mkdirError && mkdirError.code !== 'EEXIST') {
+        if (mkdirError && mkdirError.code !== 'EEXIST') {
           console.error('could not create directory:', distFileDir, mkdirError)
         } else {
           fs.writeFile(distFile, formattedText, (fileError) => {
-            if(fileError) {
+            if (fileError) {
               console.error('could not save page:', distFileDir, fileError)
             } else {
               console.log('page saved:', distFile)
