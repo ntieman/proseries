@@ -3,6 +3,7 @@ const path = require('path')
 
 const glob = require('glob')
 const html = require('html')
+const { mkdir } = require('mkdir-recursive')
 const rimraf = require('rimraf')
 
 const srcDir = path.join(__dirname, 'src/')
@@ -47,7 +48,7 @@ glob(pagesSrcGlob, (error, pages) => {
 
       console.log('ensuring existence of directory:', distFileDir)
 
-      fs.mkdir(distFileDir, { recursive: true }, (mkdirError) => {
+      mkdir(distFileDir, (mkdirError) => {
         if (mkdirError && mkdirError.code !== 'EEXIST') {
           console.error('could not create directory:', distFileDir, mkdirError)
         } else {
