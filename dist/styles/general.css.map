@@ -1,0 +1,16 @@
+{
+	"version": 3,
+	"file": "general.css",
+	"sources": [
+		"../../src/styles/general.scss",
+		"../../src/styles/_fonts.scss",
+		"../../src/styles/_top.scss"
+	],
+	"sourcesContent": [
+		"@import \"./fonts\";\n@import \"./top\";\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: #ffffff;\n\n  @media (min-width: #{breakpointMin('extra-large')}) {\n    padding: 0 calc(50% - #{breakpointMax('large')} / 2);\n  }\n}",
+		"@import url('https://fonts.googleapis.com/css?family=Roboto:500');",
+		"$logoWidth: 200px;\n$logoHeight: 38px;\n$logoMargin: 80px;\n$listItemCount: 4;\n$listItemPadding: 35px;\n$halfLogoWidth: $logoWidth / 2;\n$logoSpacing: $halfLogoWidth + $logoMargin - $listItemPadding;\n$halfListItemCount: $listItemCount / 2;\n\n.top-header {\n  position: relative;\n  min-height: $logoHeight;\n  margin-top: 45px;\n}\n\n.top-header-title {\n  position: absolute;\n  top: 0;\n  left: calc(50% - #{$halfLogoWidth});\n  margin: 0;\n  z-index: 1;\n\n  a {\n    display: block;\n  }\n\n  img {\n    display: block;\n  }\n}\n\n.top-header-nav {\n  display: block;\n  position: relative;\n  top: 4px;\n  text-align: center;\n}\n\n.top-header-list {\n  display: flex;\n  justify-content: center;\n  padding: 0;\n}\n\n.top-header-list-section {\n  width: 50%;\n  box-sizing: border-box;\n  \n  li {\n    display: inline-block;\n  }\n\n  a {\n    display: block;\n    padding: .5em $listItemPadding;\n    color: #29282F;\n    font-family: 'Roboto', sans-serif;\n    font-size: 13px;\n    font-weight: 500;\n    letter-spacing: .07692em;\n    line-height: 18px;\n    text-decoration: none;\n    text-transform: uppercase;\n  }\n}\n\n.top-header-list-left {\n  padding-left: 25px;\n  padding-right: $logoSpacing;\n  text-align: right;\n}\n\n.top-header-list-right {\n  padding-left: $logoSpacing;\n  padding-right: 25px;\n  text-align: left;\n}"
+	],
+	"names": [],
+	"mappings": "ACAA,OAAO,CAAC,yDAAI;ACSZ,AAAA,WAAW,CAAC;EACV,QAAQ,EAAE,QAAQ;EAClB,UAAU,EAVC,IAAI;EAWf,UAAU,EAAE,IAAI,GACjB;;AAED,AAAA,iBAAiB,CAAC;EAChB,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,CAAC;EACN,IAAI,EAAE,iBAA6B;EACnC,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC,GASX;EAdD,AAOE,iBAPe,CAOf,CAAC,CAAC;IACA,OAAO,EAAE,KAAK,GACf;EATH,AAWE,iBAXe,CAWf,GAAG,CAAC;IACF,OAAO,EAAE,KAAK,GACf;;AAGH,AAAA,eAAe,CAAC;EACd,OAAO,EAAE,KAAK;EACd,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,UAAU,EAAE,MAAM,GACnB;;AAED,AAAA,gBAAgB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,OAAO,EAAE,CAAC,GACX;;AAED,AAAA,wBAAwB,CAAC;EACvB,KAAK,EAAE,GAAG;EACV,UAAU,EAAE,UAAU,GAkBvB;EApBD,AAIE,wBAJsB,CAItB,EAAE,CAAC;IACD,OAAO,EAAE,YAAY,GACtB;EANH,AAQE,wBARsB,CAQtB,CAAC,CAAC;IACA,OAAO,EAAE,KAAK;IACd,OAAO,EAAE,KAAI,CAlDC,IAAI;IAmDlB,KAAK,EAAE,OAAO;IACd,WAAW,EAAE,oBAAoB;IACjC,SAAS,EAAE,IAAI;IACf,WAAW,EAAE,GAAG;IAChB,cAAc,EAAE,QAAQ;IACxB,WAAW,EAAE,IAAI;IACjB,eAAe,EAAE,IAAI;IACrB,cAAc,EAAE,SAAS,GAC1B;;AAGH,AAAA,qBAAqB,CAAC;EACpB,YAAY,EAAE,IAAI;EAClB,aAAa,EA9DD,KAA+C;EA+D3D,UAAU,EAAE,KAAK,GAClB;;AAED,AAAA,sBAAsB,CAAC;EACrB,YAAY,EAnEA,KAA+C;EAoE3D,aAAa,EAAE,IAAI;EACnB,UAAU,EAAE,IAAI,GACjB;;AFzED,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,gBAAgB,EAAE,OAAO,GAK1B;EAHC,MAAM,EAAE,SAAS,EAAE,MAAM;IAL3B,AAAA,IAAI,CAAC;MAMD,OAAO,EAAE,CAAC,CAAC,sBAAyC,GAEvD"
+}

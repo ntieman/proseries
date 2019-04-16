@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:500");
+.top-header {
+  position: relative;
+  min-height: 38px;
+  margin-top: 45px; }
+
+.top-header-title {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 100px);
+  margin: 0;
+  z-index: 1; }
+  .top-header-title a {
+    display: block; }
+  .top-header-title img {
+    display: block; }
+
+.top-header-nav {
+  display: block;
+  position: relative;
+  top: 4px;
+  text-align: center; }
+
+.top-header-list {
+  display: flex;
+  justify-content: center;
+  padding: 0; }
+
+.top-header-list-section {
+  width: 50%;
+  box-sizing: border-box; }
+  .top-header-list-section li {
+    display: inline-block; }
+  .top-header-list-section a {
+    display: block;
+    padding: 0.5em 35px;
+    color: #29282F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .07692em;
+    line-height: 18px;
+    text-decoration: none;
+    text-transform: uppercase; }
+
+.top-header-list-left {
+  padding-left: 25px;
+  padding-right: 145px;
+  text-align: right; }
+
+.top-header-list-right {
+  padding-left: 145px;
+  padding-right: 25px;
+  text-align: left; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; }
+  @media (min-width: 1921px) {
+    body {
+      padding: 0 calc(50% - 1920px / 2); } }
+
+/*# sourceMappingURL=general.css.map */

@@ -1,0 +1,77 @@
+$logoWidth: 200px;
+$logoHeight: 38px;
+$logoMargin: 80px;
+$listItemCount: 4;
+$listItemPadding: 35px;
+$halfLogoWidth: $logoWidth / 2;
+$logoSpacing: $halfLogoWidth + $logoMargin - $listItemPadding;
+$halfListItemCount: $listItemCount / 2;
+
+.top-header {
+  position: relative;
+  min-height: $logoHeight;
+  margin-top: 45px;
+}
+
+.top-header-title {
+  position: absolute;
+  top: 0;
+  left: calc(50% - #{$halfLogoWidth});
+  margin: 0;
+  z-index: 1;
+
+  a {
+    display: block;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.top-header-nav {
+  display: block;
+  position: relative;
+  top: 4px;
+  text-align: center;
+}
+
+.top-header-list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.top-header-list-section {
+  width: 50%;
+  box-sizing: border-box;
+  
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    padding: .5em $listItemPadding;
+    color: #29282F;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .07692em;
+    line-height: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+.top-header-list-left {
+  padding-left: 25px;
+  padding-right: $logoSpacing;
+  text-align: right;
+}
+
+.top-header-list-right {
+  padding-left: $logoSpacing;
+  padding-right: 25px;
+  text-align: left;
+}

@@ -1,11 +1,11 @@
 module.exports = [
   {
     name: 'extra-large',
-    min: 1800
+    min: 1921
   },
   {
     name: 'large',
-    max: 1799,
+    max: 1920,
     min: 1200
   },
   {

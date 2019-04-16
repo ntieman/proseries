@@ -1,0 +1,12 @@
+@import "./fonts";
+@import "./top";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+
+  @media (min-width: #{breakpointMin('extra-large')}) {
+    padding: 0 calc(50% - #{breakpointMax('large')} / 2);
+  }
+}

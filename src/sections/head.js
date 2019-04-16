@@ -7,6 +7,8 @@ module.exports = async ({ title }) => {
           <meta name="viewport" content="width=device-width, initial-scale=1">
 
           <title>${title}</title>
+
+          <link rel="stylesheet" href="/styles/general.css" />
         </head>
         <body>
   `
