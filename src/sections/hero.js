@@ -5,8 +5,9 @@ module.exports = async ({
   alt,
   src,
   srcFile,
-  skipTarget,
-  skipArrowText = 'Skip Image'
+  showSkipArrow = true,
+  skipArrowText = 'Skip Image',
+  skipTarget
 }) => {
   return `
     <section class="hero">
@@ -17,7 +18,7 @@ module.exports = async ({
         srcFile
       })}
       ${
-        skipTarget
+        showSkipArrow
           ? await skipArrow({ target: skipTarget, text: skipArrowText })
           : ''
       }

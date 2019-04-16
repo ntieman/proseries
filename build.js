@@ -20,6 +20,9 @@ const stylesDistDir = path.join(distDir, 'styles/')
 const scriptsSrcDir = path.join(srcDir, 'scripts/')
 const scriptsDistDir = path.join(distDir, 'scripts/')
 
+const fontsSrcDir = path.join(srcDir, 'fonts/')
+const fontsDistDir = path.join(distDir, 'fonts/')
+
 fse.remove(distDir, (error) => {
   if (error) {
     console.error('could not clear dist directory:', error)
@@ -180,5 +183,21 @@ fse.remove(distDir, (error) => {
     } else {
       console.error('could not write scripts:', compilerResult.error)
     }
+
+    fse.ensureDirSync(fontsDistDir)
+
+    glob(fontsSrcDir + '**/*', (error, fonts) => {
+      fonts.forEach((fontSrc) => {
+        const fontDist = fontSrc.replace(fontsSrcDir, fontsDistDir)
+
+        fse.copyFile(fontSrc, fontDist, (error) => {
+          if (error) {
+            console.error('could not copy font:', fontDist)
+          } else {
+            console.log('copied font:', fontDist)
+          }
+        })
+      })
+    })
   }
 })

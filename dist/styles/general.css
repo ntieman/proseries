@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:500");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+@font-face {
+  font-family: 'Futura Condensed';
+  src: url("/fonts/Futura Condensed Extra Bold.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal; }
+
 .hero {
   display: block;
   position: relative;
@@ -6,6 +12,54 @@
 
 .hero-image {
   display: block; }
+
+.intro {
+  padding: 100px 25px; }
+  @media (min-width: 1116px) {
+    .intro {
+      padding: 100px calc(50% - 545.5px); } }
+
+.intro-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style-type: none; }
+  @media (max-width: 1199px) {
+    .intro-list {
+      justify-content: flex-start;
+      flex-wrap: wrap; } }
+
+.intro-list-item {
+  display: block;
+  width: calc(100% / 3 - 25px);
+  margin-right: 25px;
+  max-width: 290px; }
+  .intro-list-item:last-child {
+    margin-right: 0; }
+  @media (max-width: 1199px) {
+    .intro-list-item {
+      width: calc(50% - 25px);
+      max-width: none; } }
+  @media (max-width: 899px) {
+    .intro-list-item {
+      width: 100%; } }
+
+.intro-list-item-header {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #29282F;
+  font-family: 'Futura Condensed';
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 39px;
+  text-transform: uppercase; }
+
+.intro-list-item-text {
+  color: #7E7E7E;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px; }
 
 .skip-arrow {
   display: block;
