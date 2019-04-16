@@ -4,6 +4,7 @@ const path = require('path')
 const glob = require('glob')
 const html = require('html')
 const sass = require('node-sass')
+const uglify = require('uglify-js')
 
 const breakpoints = require('./src/config/breakpoints')
 
@@ -15,6 +16,9 @@ const pagesDistDir = distDir
 
 const stylesSrcDir = path.join(srcDir, 'styles/')
 const stylesDistDir = path.join(distDir, 'styles/')
+
+const scriptsSrcDir = path.join(srcDir, 'scripts/')
+const scriptsDistDir = path.join(distDir, 'scripts/')
 
 fse.remove(distDir, (error) => {
   if (error) {
@@ -128,5 +132,53 @@ fse.remove(distDir, (error) => {
         })
       }
     })
+
+    const scripts = [
+      scriptsSrcDir + 'jquery.js',
+      scriptsSrcDir + 'skip-arrow.js'
+    ]
+
+    const scriptsDistFile = scriptsDistDir + 'general.min.js'
+    const sources = {}
+
+    scripts.forEach((scriptSrc) => {
+      sources[
+        scriptSrc.replace(scriptsSrcDir, '../src/scripts/')
+      ] = fse.readFileSync(scriptSrc).toString()
+    })
+
+    const compilerResult = uglify.minify(sources, {
+      sourceMap: {
+        filename: 'general.min.js.map',
+        url: 'general.min.js.map'
+      }
+    })
+
+    if (compilerResult.code) {
+      fse.ensureDirSync(scriptsDistDir)
+
+      fse.writeFile(scriptsDistFile, compilerResult.code, 'utf8', (error) => {
+        if (error) {
+          console.error('could not compile scripts:', error)
+        } else {
+          console.log('compiled scripts:', scriptsDistFile)
+        }
+      })
+
+      fse.writeFile(
+        scriptsDistFile + '.map',
+        compilerResult.map,
+        'utf8',
+        (error) => {
+          if (error) {
+            console.error('could not compile source map:', error)
+          } else {
+            console.log('compiled source map:', scriptsDistFile + '.map')
+          }
+        }
+      )
+    } else {
+      console.error('could not write scripts:', compilerResult.error)
+    }
   }
 })

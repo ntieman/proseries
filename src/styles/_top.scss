@@ -8,14 +8,15 @@ $logoSpacing: $halfLogoWidth + $logoMargin - $listItemPadding;
 $halfListItemCount: $listItemCount / 2;
 
 .top-header {
-  position: relative;
+  position: absolute;
+  width: 100%;
   min-height: $logoHeight;
   margin-top: 45px;
+  z-index: 1;
 }
 
 .top-header-title {
   position: absolute;
-  top: 0;
   left: calc(50% - #{$halfLogoWidth});
   margin: 0;
   z-index: 1;
@@ -39,6 +40,7 @@ $halfListItemCount: $listItemCount / 2;
 .top-header-list {
   display: flex;
   justify-content: center;
+  margin: 0;
   padding: 0;
 }
 

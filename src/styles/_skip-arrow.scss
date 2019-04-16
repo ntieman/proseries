@@ -1,0 +1,16 @@
+.skip-arrow {
+  display: block;
+  position: absolute;
+  bottom: 35px;
+  left: calc(50% - 12px);
+
+  i {
+    color: #DE0D15;
+    font-size: 40px;
+  }
+}
+
+.skip-arrow-text {
+  position: absolute;
+  color: rgba(255, 255, 255, 0);
+}
