@@ -10,6 +10,7 @@ $halfListItemCount: $listItemCount / 2;
 .top-header {
   position: absolute;
   width: 100%;
+  max-width: #{breakpointMax('large')};
   min-height: $logoHeight;
   margin-top: 45px;
   z-index: 1;

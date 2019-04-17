@@ -138,6 +138,8 @@ fse.remove(distDir, (error) => {
 
     const scripts = [
       scriptsSrcDir + 'jquery.js',
+      scriptsSrcDir + 'slick.js',
+      scriptsSrcDir + 'showcase.js',
       scriptsSrcDir + 'skip-arrow.js'
     ]
 

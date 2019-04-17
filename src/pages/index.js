@@ -1,7 +1,9 @@
 const foot = require('../sections/foot')
 const head = require('../sections/head')
 const hero = require('../sections/hero')
+const image = require('../sections/image')
 const intro = require('../sections/intro')
+const showcase = require('../sections/showcase')
 const top = require('../sections/top')
 
 const loremIpsum =
@@ -31,6 +33,92 @@ module.exports = async () => {
           header: 'For The Pros',
           text: loremIpsum
         }
+      ]
+    })}
+    ${await showcase({
+      header: 'Our Products',
+      items: [
+        `
+        <a href="/products/prosqueegee" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Squeegee',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-squeegee.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/proglove" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Glove',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-glove.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/prosqueegee" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Squeegee',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-squeegee.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/prosqueegee" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Squeegee',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-squeegee.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/proglove" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Glove',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-glove.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/prosqueegee" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Squeegee',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-squeegee.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/prosqueegee" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Squeegee',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-squeegee.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/proglove" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Glove',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-glove.png'
+          })}
+        </a>
+      `,
+        `
+        <a href="/products/prosqueegee" class="showcase-list-item-link">
+          ${await image({
+            alt: 'Pro Squeegee',
+            class: 'showcase-list-item-image',
+            srcFile: 'pro-squeegee.png'
+          })}
+        </a>
+      `
       ]
     })}
     ${await foot()}
