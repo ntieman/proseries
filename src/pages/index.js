@@ -1,3 +1,4 @@
+const connect = require('../sections/connect')
 const foot = require('../sections/foot')
 const head = require('../sections/head')
 const hero = require('../sections/hero')
@@ -121,6 +122,7 @@ module.exports = async () => {
       `
       ]
     })}
+    ${await connect()}
     ${await foot()}
   `
 }

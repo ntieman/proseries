@@ -1,4 +1,6 @@
 @import "./fonts";
+
+@import "./connect";
 @import "./hero";
 @import "./intro";
 @import "./showcase";
@@ -15,4 +17,8 @@ body {
   @media (min-width: #{breakpointMin('extra-large')}) {
     padding: 0 calc(50% - #{breakpointMax('large')} / 2);
   }
+}
+
+button {
+  cursor: pointer;
 }
