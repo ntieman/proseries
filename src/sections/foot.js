@@ -1,6 +1,6 @@
 module.exports = async () => {
   return `
-        <script src="/scripts/general.min.js"></script>
+        <script src="scripts/general.min.js"></script>
       </body>
     </html>
   `
