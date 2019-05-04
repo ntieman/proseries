@@ -35,7 +35,7 @@ module.exports = async ({ srcFile, widths, ...attributes }) => {
       const distFile = srcFile.replace(imagesSrcDir, imagesDistDir)
       const distFileDir = path.dirname(distFile)
 
-      const src = srcFile.replace(imagesSrcDir, '/images')
+      const src = srcFile.replace(imagesSrcDir, 'images')
 
       attributes['src'] = src
 
@@ -82,7 +82,7 @@ module.exports = async ({ srcFile, widths, ...attributes }) => {
               imagesSrcDir,
               imagesDistDir
             )
-            const widthSrc = widthSrcFile.replace(imagesSrcDir, '/images')
+            const widthSrc = widthSrcFile.replace(imagesSrcDir, 'images')
 
             sources.push(widthSrc + ' ' + width)
 
@@ -137,7 +137,7 @@ module.exports = async ({ srcFile, widths, ...attributes }) => {
             imagesSrcDir,
             imagesDistDir
           )
-          const widthSrc = widthSrcFile.replace(imagesSrcDir, '/images')
+          const widthSrc = widthSrcFile.replace(imagesSrcDir, 'images')
 
           sources.push(widthSrc + ' ' + width)
 
