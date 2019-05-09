@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
 @font-face {
   font-family: 'Futura Condensed';
-  src: url("/fonts/Futura Condensed Extra Bold.otf") format("opentype");
+  src: url("https://ntieman.github.io/proseries/dist/fonts/Futura Condensed Extra Bold.otf") format("opentype");
   font-weight: 900;
   font-style: normal; }
 
@@ -60,94 +60,6 @@
   line-height: 26px;
   text-transform: uppercase;
   vertical-align: top; }
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding-top: 142px;
-  padding-bottom: 46px;
-  padding-left: calc(50% - 545.5px);
-  padding-right: calc(50% - 545.5px);
-  margin: 0 auto;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif; }
-  .footer section {
-    color: #7E7E7E;
-    font-size: 14px;
-    line-height: 24px; }
-    .footer section a {
-      color: #7E7E7E;
-      text-decoration: none; }
-    .footer section a[href^=tel] {
-      font-weight: bold; }
-    .footer section address {
-      font-style: normal;
-      line-height: 28px; }
-    .footer section h3 {
-      margin-top: 0;
-      color: #CCCCCC;
-      font-weight: bold;
-      letter-spacing: .22222em;
-      text-transform: uppercase; }
-    .footer section li {
-      line-height: 36px; }
-    .footer section ul {
-      list-style-type: none;
-      padding-left: 0; }
-  @media (max-width: 1199px) {
-    .footer {
-      display: block;
-      padding-left: 25px;
-      padding-right: 25px; }
-      .footer section {
-        width: 100%;
-        margin-bottom: 25px; } }
-  @media (max-width: 899px) {
-    .footer {
-      width: 100%; } }
-
-.footer-intro {
-  width: 240px; }
-
-.footer-links {
-  width: 170px; }
-
-.footer-contact {
-  width: 250px; }
-
-.footer-contact-social i {
-  font-size: 24px; }
-
-.footer-contact-social li {
-  display: inline-block;
-  margin-left: 2px; }
-  .footer-contact-social li:first-child {
-    margin-left: 0; }
-
-.footer-contact-social span {
-  position: absolute;
-  color: rgba(255, 255, 255, 0); }
-
-.copyright {
-  width: 100%;
-  max-width: 1091px;
-  margin: 0 auto;
-  padding: 44px 0;
-  border-top: 1px #EDEDED solid;
-  color: #7E7E7E;
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  line-height: 24px;
-  box-sizing: border-box; }
-  .copyright .red {
-    color: #DE0D15; }
-  .copyright a {
-    color: #7E7E7E;
-    text-decoration: none; }
-  @media (max-width: 1199px) {
-    .copyright {
-      margin: 0 25px; } }
 
 .hero {
   display: block;
